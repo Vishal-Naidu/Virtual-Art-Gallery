@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Virtual Art Gallery</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .checkout-container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .checkout-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        input {
+            background: #333;
+            color: white;
+        }
+        .pay-button {
+            background: green;
+            color: white;
+            cursor: pointer;
+        }
+        .pay-button:hover {
+            background: darkgreen;
+        }
+        .back-button {
+            background: red;
+            color: white;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background: darkred;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+    </header>
+
+    <div class="checkout-container">
+        <h2>Confirm Your Purchase</h2>
+        <img id="checkout-img" src="" alt="Artwork">
+        <p id="checkout-desc"></p>
+        <p id="checkout-price"></p>
+        
+        <input type="text" id="buyer-name" placeholder="Enter Your Name">
+        <input type="email" id="buyer-email" placeholder="Enter Your Email">
+
+        <button class="pay-button" onclick="confirmPurchase()">Pay Now</button>
+        <button class="back-button" onclick="goBack()">Back to Gallery</button>
+    </div>
+
+    <script>
+        // Load artwork details from URL params
+        const params = new URLSearchParams(window.location.search);
+        const imgSrc = params.get("img");
+        const desc = params.get("desc");
+        const price = params.get("price");
+
+        if (imgSrc && desc && price) {
+            document.getElementById("checkout-img").src = imgSrc;
+            document.getElementById("checkout-desc").innerText = "Artwork: " + desc;
+            document.getElementById("checkout-price").innerText = "Price: " + price;
+        } else {
+            alert("Error: Artwork details are missing.");
+            window.location.href = "gallery.html";
+        }
+
+        function confirmPurchase() {
+            const name = document.getElementById("buyer-name").value;
+            const email = document.getElementById("buyer-email").value;
+
+            if (!name || !email) {
+                alert("Please enter your name and email.");
+                return;
+            }
+
+            alert("Payment Successful! Thank you, " + name);
+            window.location.href = "gallery.html";
+        }
+
+        function goBack() {
+            window.location.href = "gallery.html";
+        }
+    </script>
+</body>
+</html>

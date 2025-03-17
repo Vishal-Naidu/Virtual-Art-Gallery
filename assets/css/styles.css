@@ -1,0 +1,120 @@
+/* assets/css/styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #111;
+    color: white;
+}
+
+.hero {
+    background: url('../images/hero.jpg') no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(8, 8, 8);
+}
+
+.btn {
+    background: #000;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #333;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+.gallery-container {
+    display: none; /* Initially hide the gallery */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.gallery-container.show {
+    display: block;
+    opacity: 1;
+}
+.about-content p {
+    color: white;
+}
+
+
+.art-item img {
+    max-width: 100%;
+    height: auto;
+    width: 300px; /* Adjust as needed */
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(244, 242, 242, 0.878);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.art-item img:hover {
+    transform: scale(1.05);
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+
+/* Background Music Button */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(16, 0, 0, 0.87);
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+    margin: 20px;
+}
+
+.filter-buttons button {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    background: #333;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-buttons button:hover {
+    background: #555;
+}
